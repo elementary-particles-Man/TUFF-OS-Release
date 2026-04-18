@@ -1,0 +1,244 @@
+cargo:warning=shaderc: searching for native shaderc libraries on system;  use '--features build-from-source' to force building from source code
+cargo:warning=shaderc: cannot find native shaderc library on system; falling back to build from source
+CMAKE_TOOLCHAIN_FILE_x86_64-unknown-linux-gnu = None
+CMAKE_TOOLCHAIN_FILE_x86_64_unknown_linux_gnu = None
+HOST_CMAKE_TOOLCHAIN_FILE = None
+CMAKE_TOOLCHAIN_FILE = None
+CMAKE_PREFIX_PATH_x86_64-unknown-linux-gnu = None
+CMAKE_PREFIX_PATH_x86_64_unknown_linux_gnu = None
+HOST_CMAKE_PREFIX_PATH = None
+CMAKE_PREFIX_PATH = None
+CMAKE_x86_64-unknown-linux-gnu = None
+CMAKE_x86_64_unknown_linux_gnu = None
+HOST_CMAKE = None
+CMAKE = None
+-- Building SPIRV-Header examples
+-- Installing SPIRV-Header
+-- Google Mock was not found - tests based on that will not build
+-- optimizer enabled
+-- Shaderc: build type is "Release".
+-- Configuring Shaderc to avoid building tests.
+-- Configuring Shaderc to build examples.
+-- Configuring Shaderc to check copyrights.
+-- asciidoctor was not found - no documentation will be generated
+-- Configuring done (0.2s)
+-- Generating done (0.2s)
+-- Build files have been written to: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/build
+[1/10] cd /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/build/spirv-tools && /usr/bin/cmake -DCHANGES_FILE=/home/flux/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/shaderc-sys-0.8.3/build/spirv-tools/CHANGES -DTEMPLATE_FILE=/home/flux/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/shaderc-sys-0.8.3/build/spirv-tools/cmake/SPIRV-Tools.pc.in -DOUT_FILE=/media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/build/spirv-tools/SPIRV-Tools.pc -DCMAKE_INSTALL_PREFIX=/media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_INSTALL_INCLUDEDIR=include -DSPIRV_LIBRARIES=-lSPIRV-Tools-opt\ -lSPIRV-Tools\ -lSPIRV-Tools-link -P /home/flux/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/shaderc-sys-0.8.3/build/spirv-tools/cmake/write_pkg_config.cmake
+[2/10] cd /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/build/spirv-tools && /usr/bin/cmake -DCHANGES_FILE=/home/flux/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/shaderc-sys-0.8.3/build/spirv-tools/CHANGES -DTEMPLATE_FILE=/home/flux/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/shaderc-sys-0.8.3/build/spirv-tools/cmake/SPIRV-Tools-shared.pc.in -DOUT_FILE=/media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/build/spirv-tools/SPIRV-Tools-shared.pc -DCMAKE_INSTALL_PREFIX=/media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_INSTALL_INCLUDEDIR=include -DSPIRV_SHARED_LIBRARIES=-lSPIRV-Tools-shared -P /home/flux/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/shaderc-sys-0.8.3/build/spirv-tools/cmake/write_pkg_config.cmake
+[3/10] cd /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/build/shaderc && /usr/bin/cmake -DCHANGES_FILE=/home/flux/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/shaderc-sys-0.8.3/build/shaderc/CHANGES -DTEMPLATE_FILE=/home/flux/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/shaderc-sys-0.8.3/build/shaderc/cmake/shaderc.pc.in -DOUT_FILE=/media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/build/shaderc/shaderc.pc -DCMAKE_INSTALL_PREFIX=/media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_INSTALL_INCLUDEDIR=include -DLIBS=-lshaderc_shared -P /home/flux/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/shaderc-sys-0.8.3/build/shaderc/cmake/write_pkg_config.cmake
+[4/10] cd /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/build/shaderc && /usr/bin/cmake -DCHANGES_FILE=/home/flux/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/shaderc-sys-0.8.3/build/shaderc/CHANGES -DTEMPLATE_FILE=/home/flux/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/shaderc-sys-0.8.3/build/shaderc/cmake/shaderc_static.pc.in -DOUT_FILE=/media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/build/shaderc/shaderc_static.pc -DCMAKE_INSTALL_PREFIX=/media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_INSTALL_INCLUDEDIR=include -DLIBS=-lshaderc\ \ -lshaderc_util -P /home/flux/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/shaderc-sys-0.8.3/build/shaderc/cmake/write_pkg_config.cmake
+[5/10] cd /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/build/shaderc && /usr/bin/cmake -DCHANGES_FILE=/home/flux/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/shaderc-sys-0.8.3/build/shaderc/CHANGES -DTEMPLATE_FILE=/home/flux/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/shaderc-sys-0.8.3/build/shaderc/cmake/shaderc_combined.pc.in -DOUT_FILE=/media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/build/shaderc/shaderc_combined.pc -DCMAKE_INSTALL_PREFIX=/media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_INSTALL_INCLUDEDIR=include -DLIBS=-lshaderc_combined -P /home/flux/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/shaderc-sys-0.8.3/build/shaderc/cmake/write_pkg_config.cmake
+[6/10] Check copyright
+[7/10] Update build-version.inc in the Shaderc build directory (if necessary).
+[8/10] Building CXX object spirv-tools/source/diff/CMakeFiles/SPIRV-Tools-diff.dir/diff.cpp.o
+[9/10] Linking CXX static library spirv-tools/source/diff/libSPIRV-Tools-diff.a
+[9/10] Install the project...
+-- Install configuration: "Release"
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.0
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.0/spirv.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.0/extinst.opencl.std.100.grammar.json
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.0/GLSL.std.450.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.0/spirv.lua
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.0/extinst.glsl.std.450.grammar.json
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.0/spirv.py
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.0/spirv.json
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.0/spirv.hpp
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.0/spirv.cs
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.0/spirv.core.grammar.json
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.0/OpenCL.std.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.0/spirv.hpp11
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.2
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.2/spirv.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.2/extinst.opencl.std.100.grammar.json
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.2/GLSL.std.450.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.2/spirv.lua
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.2/extinst.glsl.std.450.grammar.json
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.2/spirv.py
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.2/spirv.json
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.2/spirv.hpp
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.2/spirv.cs
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.2/spirv.core.grammar.json
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.2/OpenCL.std.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.2/spirv.hpp11
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/spir-v.xml
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.1
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.1/spirv.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.1/extinst.opencl.std.100.grammar.json
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.1/GLSL.std.450.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.1/spirv.lua
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.1/extinst.glsl.std.450.grammar.json
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.1/spirv.py
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.1/spirv.json
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.1/spirv.hpp
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.1/spirv.cs
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.1/spirv.core.grammar.json
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.1/OpenCL.std.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/1.1/spirv.hpp11
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/unified1
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/unified1/extinst.nonsemantic.clspvreflection.grammar.json
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/unified1/OpenCLDebugInfo100.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/unified1/AMD_shader_explicit_vertex_parameter.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/unified1/NonSemanticDebugPrintf.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/unified1/spirv.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/unified1/AMD_shader_ballot.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/unified1/spv.d
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/unified1/NonSemanticShaderDebugInfo100.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/unified1/extinst.opencl.std.100.grammar.json
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/unified1/extinst.spv-amd-shader-explicit-vertex-parameter.grammar.json
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/unified1/spirv.bf
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/unified1/extinst.nonsemantic.debugprintf.grammar.json
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/unified1/DebugInfo.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/unified1/GLSL.std.450.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/unified1/extinst.spv-amd-shader-trinary-minmax.grammar.json
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/unified1/spirv.lua
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/unified1/extinst.glsl.std.450.grammar.json
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/unified1/spirv.py
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/unified1/extinst.spv-amd-shader-ballot.grammar.json
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/unified1/extinst.spv-amd-gcn-shader.grammar.json
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/unified1/extinst.opencl.debuginfo.100.grammar.json
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/unified1/spirv.json
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/unified1/spirv.hpp
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/unified1/AMD_gcn_shader.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/unified1/spirv.cs
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/unified1/spirv.core.grammar.json
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/unified1/extinst.debuginfo.grammar.json
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/unified1/AMD_shader_trinary_minmax.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/unified1/OpenCL.std.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/unified1/spirv.hpp11
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/unified1/NonSemanticClspvReflection.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv/unified1/extinst.nonsemantic.shader.debuginfo.100.grammar.json
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/share/cmake/SPIRV-Headers/SPIRV-HeadersConfig.cmake
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/share/cmake/SPIRV-Headers/SPIRV-HeadersConfigVersion.cmake
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/share/cmake/SPIRV-Headers/SPIRV-HeadersTargets.cmake
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/share/pkgconfig/SPIRV-Headers.pc
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/libSPIRV-Tools-opt.a
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/cmake/SPIRV-Tools-opt/SPIRV-Tools-optTargets.cmake
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/cmake/SPIRV-Tools-opt/SPIRV-Tools-optTargets-release.cmake
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/cmake/SPIRV-Tools-opt/SPIRV-Tools-optConfig.cmake
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/libSPIRV-Tools-reduce.a
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/cmake/SPIRV-Tools-reduce/SPIRV-Tools-reduceTarget.cmake
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/cmake/SPIRV-Tools-reduce/SPIRV-Tools-reduceTarget-release.cmake
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/cmake/SPIRV-Tools-reduce/SPIRV-Tools-reduceConfig.cmake
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/libSPIRV-Tools-link.a
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/cmake/SPIRV-Tools-link/SPIRV-Tools-linkTargets.cmake
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/cmake/SPIRV-Tools-link/SPIRV-Tools-linkTargets-release.cmake
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/cmake/SPIRV-Tools-link/SPIRV-Tools-linkConfig.cmake
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/libSPIRV-Tools-lint.a
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/cmake/SPIRV-Tools-lint/SPIRV-Tools-lintTargets.cmake
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/cmake/SPIRV-Tools-lint/SPIRV-Tools-lintTargets-release.cmake
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/cmake/SPIRV-Tools-lint/SPIRV-Tools-lintConfig.cmake
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/libSPIRV-Tools-diff.a
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/cmake/SPIRV-Tools-diff/SPIRV-Tools-diffTargets.cmake
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/cmake/SPIRV-Tools-diff/SPIRV-Tools-diffTargets-release.cmake
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/cmake/SPIRV-Tools-diff/SPIRV-Tools-diffConfig.cmake
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/libSPIRV-Tools.a
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/libSPIRV-Tools-shared.so
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/cmake/SPIRV-Tools/SPIRV-ToolsTarget.cmake
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/cmake/SPIRV-Tools/SPIRV-ToolsTarget-release.cmake
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/cmake/SPIRV-Tools/SPIRV-ToolsConfig.cmake
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv-tools/libspirv.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv-tools/libspirv.hpp
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv-tools/optimizer.hpp
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv-tools/linker.hpp
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/spirv-tools/instrument.hpp
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/pkgconfig/SPIRV-Tools.pc
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/pkgconfig/SPIRV-Tools-shared.pc
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/libOSDependent.a
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/cmake/OSDependentTargets.cmake
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/libglslang.a
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/libMachineIndependent.a
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/libGenericCodeGen.a
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/cmake/glslangTargets.cmake
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/Public/ShaderLang.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/Public/ResourceLimits.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/Public/resource_limits_c.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/Include/arrays.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/Include/BaseTypes.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/Include/Common.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/Include/ConstantUnion.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/Include/glslang_c_interface.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/Include/glslang_c_shader_types.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/Include/InfoSink.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/Include/InitializeGlobals.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/Include/intermediate.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/Include/PoolAlloc.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/Include/ResourceLimits.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/Include/ShHandle.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/Include/SpirvIntrinsics.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/Include/Types.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/MachineIndependent/attribute.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/MachineIndependent/glslang_tab.cpp.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/MachineIndependent/gl_types.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/MachineIndependent/Initialize.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/MachineIndependent/iomapper.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/MachineIndependent/LiveTraverser.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/MachineIndependent/localintermediate.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/MachineIndependent/ParseHelper.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/MachineIndependent/reflection.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/MachineIndependent/RemoveTree.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/MachineIndependent/Scan.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/MachineIndependent/ScanContext.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/MachineIndependent/SymbolTable.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/MachineIndependent/Versions.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/MachineIndependent/parseVersions.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/MachineIndependent/propagateNoContraction.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/MachineIndependent/preprocessor/PpContext.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/MachineIndependent/preprocessor/PpTokens.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/HLSL/hlslAttributes.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/HLSL/hlslParseHelper.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/HLSL/hlslTokens.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/HLSL/hlslScanContext.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/HLSL/hlslOpMap.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/HLSL/hlslTokenStream.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/HLSL/hlslGrammar.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/HLSL/hlslParseables.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/build_info.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/libOGLCompiler.a
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/cmake/OGLCompilerTargets.cmake
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/libSPIRV.a
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/cmake/SPIRVTargets.cmake
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/SPIRV/bitutils.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/SPIRV/spirv.hpp
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/SPIRV/GLSL.std.450.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/SPIRV/GLSL.ext.EXT.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/SPIRV/GLSL.ext.KHR.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/SPIRV/GlslangToSpv.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/SPIRV/hex_float.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/SPIRV/Logger.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/SPIRV/SpvBuilder.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/SPIRV/spvIR.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/SPIRV/doc.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/SPIRV/SpvTools.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/SPIRV/disassemble.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/SPIRV/GLSL.ext.AMD.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/SPIRV/GLSL.ext.NV.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/SPIRV/GLSL.ext.ARM.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/SPIRV/NonSemanticDebugPrintf.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/SPIRV/NonSemanticShaderDebugInfo100.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/SPIRV/SPVRemapper.h
+-- Up-to-date: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/glslang/SPIRV/doc.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/libHLSL.a
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/cmake/HLSLTargets.cmake
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/cmake/glslang/glslang-targets.cmake
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/cmake/glslang/glslang-targets-release.cmake
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/cmake/glslang/glslang-config.cmake
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/cmake/glslang/glslang-config-version.cmake
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/shaderc/env.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/shaderc/status.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/shaderc/visibility.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/shaderc/shaderc.h
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/include/shaderc/shaderc.hpp
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/libshaderc.a
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/libshaderc_shared.so.1
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/libshaderc_shared.so
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/libshaderc_combined.a
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/bin/glslc
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/pkgconfig/shaderc.pc
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/pkgconfig/shaderc_static.pc
+-- Installing: /media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib/pkgconfig/shaderc_combined.pc
+cargo:root=/media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out
+cargo:rustc-link-search=native=/media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/shaderc-sys-ebc7dc3131670a23/out/lib
+cargo:rustc-link-lib=static=shaderc_combined
+cargo:rustc-link-lib=dylib=stdc++

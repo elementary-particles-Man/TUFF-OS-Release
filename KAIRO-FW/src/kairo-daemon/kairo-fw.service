@@ -1,0 +1,12 @@
+[Unit]
+Description=KAIRO Firewall Daemon (Ethics-free)
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/kairo-fw-daemon
+Restart=always
+User=root
+Environment=LOG_LEVEL=info
+
+[Install]
+WantedBy=multi-user.target

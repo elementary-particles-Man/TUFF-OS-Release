@@ -1,0 +1,15 @@
+[Unit]
+Description=KAIRO AI-Proxy Daemon (Standalone, Ethics-free)
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/kairo-daemon
+Restart=always
+RestartSec=5
+WorkingDirectory=/etc/kairo
+Environment=KAIRO_ACL_PATH=/etc/kairo/KAIRO-ACL.txt
+Environment=RUST_LOG=info
+
+[Install]
+WantedBy=multi-user.target

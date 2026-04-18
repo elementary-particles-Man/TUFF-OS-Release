@@ -1,0 +1,32 @@
+#version 450
+#extension GL_EXT_shader_explicit_arithmetic_types_int8 : require
+
+layout(local_size_x = 256) in; // 256個のスレッドグループ
+
+layout(binding = 0) buffer PacketBuffer {
+    uint8_t payloads[]; // 入力パケットペイロード
+};
+
+layout(binding = 1) buffer ResultBuffer {
+    uint8_t results[]; // 分類結果（0: Allow, 1: SilentDrop）
+};
+
+// SIMD 演算に相当する branchless パケット分類ロジック
+void main() {
+    uint g_idx = gl_GlobalInvocationID.x;
+    if (g_idx >= 4096) return; // 4096 パケット同時分類
+
+    // パケット解析 (簡易版シミュレーション)
+    // 実際には特定パターンのマッチング、HMAC/SHA3検証のGPGPU実装を含む
+    bool malicious = false;
+    
+    // 典型的な攻撃パターンの branchless 検知
+    // 例: 特定の制御文字や不正なシーケンスを並列チェック
+    for (int i = 0; i < 64; ++i) {
+        if (payloads[g_idx * 1500 + i] == 0xFF) { // 不正なバイト値（例）
+            malicious = true;
+        }
+    }
+
+    results[g_idx] = malicious ? 1 : 0;
+}

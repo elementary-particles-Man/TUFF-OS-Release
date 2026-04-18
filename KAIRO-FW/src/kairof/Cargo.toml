@@ -1,0 +1,22 @@
+[package]
+name = "kairof"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "kairof"
+path = "lib.rs"
+
+[[bin]]
+name = "kairo-fw"
+path = "main.rs"
+
+[dependencies]
+flatbuffers = "25.2.10"
+rand = "0.8.5"
+clap = { version = "4.5", features = ["derive"] }
+anyhow = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+kairo_core = { path = "../../rust-core" }
+libc = "0.2"

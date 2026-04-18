@@ -1,0 +1,52 @@
+#version 450
+#extension GL_EXT_shader_explicit_arithmetic_types_int8 : require
+#extension GL_EXT_shader_explicit_arithmetic_types_int32 : require
+
+layout(local_size_x = 64, local_size_y = 1, local_size_z = 1) in;
+
+// UserRecord 構造体 (128 bytes)
+struct UserRecord {
+    uint8_t  login_id[12];
+    uint8_t  password_hash[20];
+    uint32_t system_flags;
+    uint8_t  tag_group_mask[95];
+    uint8_t  reserved[12];
+};
+
+layout(push_constant) uniform AuthParams {
+    uint target_tag_id;
+    uint total_users;
+} params;
+
+layout(set = 0, binding = 0) readonly buffer UserDb {
+    UserRecord users[];
+} user_db;
+
+layout(set = 0, binding = 1) buffer ResultBitmap {
+    uint visibility_map[]; // 1 bit per user (1: visible, 0: stealth)
+} results;
+
+void main() {
+    uint user_idx = gl_GlobalInvocationID.x;
+    if (user_idx >= params.total_users) return;
+
+    UserRecord user = user_db.users[user_idx];
+    
+    // 暗示的 Admin (System Flags bit 0) またはタグ権限の判定
+    bool is_root = (uint(user.system_flags) & 1u) != 0u;
+    
+    // タグ権限の取得 (2-bit per tag)
+    uint byte_idx = params.target_tag_id / 4u;
+    uint bit_shift = (params.target_tag_id % 4u) * 2u;
+    uint perm_bits = (uint(user.tag_group_mask[byte_idx]) >> bit_shift) & 0x03u;
+    
+    // 可視性判定 (Admin または Read/RW 権限があれば可視)
+    bool visible = is_root || (perm_bits > 0u);
+    
+    // 結果をビットマップに格納
+    uint word_idx = user_idx / 32u;
+    uint bit_idx = user_idx % 32u;
+    if (visible) {
+        atomicOr(results.visibility_map[word_idx], (1u << bit_idx));
+    }
+}
