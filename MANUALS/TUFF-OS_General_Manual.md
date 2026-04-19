@@ -4,7 +4,7 @@
 
 **TUFF-OS (The Ultimate Fortress Foundation OS)** is a fortified operating system designed to **fundamentally eliminate logical vulnerabilities** present in existing operating systems and file systems at the **physical layer level**. Its goal is to establish complete data self-sovereignty and an "Absolute Defense Perimeter."
 
-TUFF-OS operates as a **lower-layer OS** beneath your existing primary OS (TUFF-KERNEL / Windows / macOS). It maintains complete control over all HDD accesses from the application layer at the physical layer. This allows all data to be encrypted and protected without the application layer's awareness, enabling different security levels on a per-directory basis.
+TUFF-OS operates as a **lower-layer OS** beneath your existing primary OS (Linux / Windows / macOS). It maintains complete control over all HDD accesses from the Upper OS at the physical layer. This allows all data to be encrypted and protected without the Upper OS's awareness, enabling different security levels on a per-directory basis.
 
 ### Required Storage Configuration
 - **SSD**: OS installation area, Physical Queue (UQ) area.
@@ -12,9 +12,9 @@ TUFF-OS operates as a **lower-layer OS** beneath your existing primary OS (TUFF-
 - **Mass Storage**: For data evacuation during failures.
 - **USB Drive**: For storing CSE cryptographic keys.
 
-The HDD area is recognized as a "JBOD (single unified volume)" by the application layer, but TUFF-OS manages it entirely at the physical layer.
+The HDD area is recognized as a "JBOD (single unified volume)" by the Upper OS, but TUFF-OS manages it entirely at the physical layer.
 
-TUFF-OS maintains user management completely independent of the application layer. Data is accessible **only while logged in**. Without an active session, **the existence of the data itself cannot be recognized** (Physical Agnosticism).
+TUFF-OS maintains user management completely independent of the Upper OS. Data is accessible **only while logged in**. Without an active session, **the existence of the data itself cannot be recognized** (Physical Agnosticism).
 
 ---
 
@@ -30,7 +30,7 @@ The OS core operates on a runtime-managed asynchronous scheduler that keeps the 
 flowchart TD
     A[Physical Layer\nDirect LBA Binding] --> B[Asynchronous Runtime\nRuntime-Managed Scheduler]
     B --> C[Security Layer\nDeception / Isolation / KAIRO]
-    C --> D[application layer\nWindows / TUFF-KERNEL / macOS]
+    C --> D[Upper OS\nWindows / Linux / macOS]
 
     classDef phys fill:#1e3a8a,color:#fff,stroke:#60a5fa,stroke-width:2px
     classDef async fill:#166534,color:#fff,stroke:#4ade80,stroke-width:2px
@@ -57,7 +57,7 @@ flowchart TD
 #### Core Components
 ```mermaid
 flowchart LR
-    A[application layer I/O] --> B[UQ\nUnique Queue]
+    A[Upper OS I/O] --> B[UQ\nUnique Queue]
     B --> C[ZRAM Comp + KEY-CSE Enc]
     C --> D[HW Queues\nDynamic Allocation]
     D --> E[Physical HDDs]
@@ -113,7 +113,7 @@ Tags are assigned to folders, and access is determined via bitwise operations ag
 
 ## 4. Operation & Management
 
-All system operations are conducted exclusively through the **`tuffutl`** utility. Environment-specific Web-UIs are provided for the application layer, which execute `tuffutl` commands in the background.
+All system operations are conducted exclusively through the **`tuffutl`** utility. Environment-specific Web-UIs are provided for the Upper OS, which execute `tuffutl` commands in the background.
 
 The current write path is staged through `UniqueQueueRuntime`, scheduled by `HwScheduler`, finalized by `CommitCoordinator`, and physically confirmed by readback verification after `BlockIO` writeout.
 

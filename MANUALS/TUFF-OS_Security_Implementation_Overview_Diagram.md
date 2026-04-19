@@ -122,7 +122,7 @@ flowchart TD
     D --> E[AI Probe / IDPI<br>4096-Packet Parallel Analysis]
     E -->|Malicious| F[Silent Drop + PQC Audit]
     E -->|Benign| C
-    C --> G[application layer Stack]
+    C --> G[Upper OS Stack]
 
     classDef fast fill:#166534,stroke:#4ade80,color:#fff
     classDef heavy fill:#991b1b,stroke:#fca5a5,color:#fff

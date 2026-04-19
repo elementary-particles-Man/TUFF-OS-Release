@@ -121,7 +121,7 @@ flowchart TD
     D --> E[AI Probe / IDPI<br>4096パケット並列解析]
     E -->|悪意判定| F[Silent Drop + PQC署名証跡]
     E -->|良性| C
-    C --> G[アプリケーション層スタック]
+    C --> G[上位OSスタック]
 
     classDef fast fill:#166534,stroke:#4ade80,color:#fff
     classDef heavy fill:#991b1b,stroke:#fca5a5,color:#fff

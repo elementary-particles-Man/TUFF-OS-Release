@@ -52,7 +52,7 @@
 1. 起動時Genesis検証 → 3N不一致（Consensus Failure）
 2. 自動でIsolationモードへ移行
    - 全セッション破棄
-   - 物理I/O遮断（アプリケーション層からはディスク自体が見えなくなる）
+   - 物理I/O遮断（上位OSからはディスク自体が見えなくなる）
    - witness.logに「Consensus Failure → Isolation」記録
 
 **運用上の対応**

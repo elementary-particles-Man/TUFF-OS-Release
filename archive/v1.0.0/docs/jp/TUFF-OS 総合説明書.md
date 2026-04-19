@@ -4,7 +4,7 @@
 
 **TUFF-OS（The Ultimate Fortress Foundation OS）**は、既存OSやファイルシステムが抱える論理的脆弱性を**物理層レベルで根本的に排除**し、完全なるデータの自己主権と「絶対防衛圏」を確立するために設計された要塞型オペレーティングシステムです。
 
-本OSは、既存OSの**下位OS**として動作し、上位OS（TUFF-KERNEL / Windows / macOS）からのすべてのHDDアクセスを物理層で完全制御します。これにより、上位OSに意識させることなく、すべてのデータを暗号化・保護し、ディレクトリ単位で異なるセキュリティレベルを実現します。
+本OSは、既存OSの**下位OS**として動作し、上位OS（Linux / Windows / macOS）からのすべてのHDDアクセスを物理層で完全制御します。これにより、上位OSに意識させることなく、すべてのデータを暗号化・保護し、ディレクトリ単位で異なるセキュリティレベルを実現します。
 
 ### 必要なストレージ構成
 - **SSD**：OSインストール領域、物理キュー領域
@@ -30,7 +30,7 @@ OSコアは動的メモリ確保を一切行わない独自の非同期ランタ
 flowchart TD
     A[物理層\nLBA直結] --> B[非同期ランタイム\nZero-Allocation Waker]
     B --> C[セキュリティ層\nDeception / Isolation / KAIRO]
-    C --> D[上位OS\nWindows / TUFF-KERNEL / macOS]
+    C --> D[上位OS\nWindows / Linux / macOS]
 
     classDef phys fill:#1e3a8a,color:#fff,stroke:#60a5fa,stroke-width:2px
     classDef async fill:#166534,color:#fff,stroke:#4ade80,stroke-width:2px

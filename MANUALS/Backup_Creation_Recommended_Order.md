@@ -61,7 +61,7 @@ Use these steps for:
    tuffutl sys poweroff
    ```
 
-2. **Image each HDD via `dd`** (Execute on the TUFF-KERNEL host)
+2. **Image each HDD via `dd`** (Execute on the Linux host)
    ```bash
    # Repeat for each HDD (e.g., sdb, sdc, sdd)
    dd if=/dev/sdb of=/mnt/backup/jbod_sdb_$(date +%Y%m%d).img bs=4M status=progress conv=fsync

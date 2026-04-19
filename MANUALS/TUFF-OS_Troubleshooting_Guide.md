@@ -20,7 +20,7 @@
 
 | Symptom | Possible Cause | Action | Prevention / Note |
 |:---|:---|:---|:---|
-| `fs commit` / `reject` fails | UQ usage > 80% (Back-pressure) | Check usage via `tuffutl fs status` → Delete unneeded files in application layer. | Run `tuffutl fs commit` regularly. |
+| `fs commit` / `reject` fails | UQ usage > 80% (Back-pressure) | Check usage via `tuffutl fs status` → Delete unneeded files in Upper OS. | Run `tuffutl fs commit` regularly. |
 | `fs rollback` says "Not a Generational Path" | J-Generation not enabled | Run `tuffutl fs set-j /path` to enable, then retry. | Call `set-j` beforehand for important folders. |
 | Data invisible after disk dropout | Emergency Area depleted | 1. Connect new HDD → `tuffutl fs append /dev/sdX`.<br>2. Wait for auto-resync. | Maintain at least 10% free space on all HDDs. |
 | `fs fsck` reports "Consensus Failure" | 1 disk in 3N set completely dead | Physically replace HDD → `tuffutl fs fsck --repair`. | 3N is resilient up to 2 dead disks. |

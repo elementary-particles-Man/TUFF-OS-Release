@@ -7,7 +7,7 @@
 
 ## 1. Overview
 
-The **tuffutl Web-UI** is a **local-only browser interface** designed for intuitively operating TUFF-OS from an Upper OS (Windows / TUFF-KERNEL / macOS).
+The **tuffutl Web-UI** is a **local-only browser interface** designed for intuitively operating TUFF-OS from an Upper OS (Windows / Linux / macOS).
 
 - **Design Philosophy**: Visualize the physical layer state while **preventing any direct access from the Upper OS**.
 - **Operation**: A local server (`tuffwin` / `tufflnx` / `tuffmac`) runs on the Upper OS, and the UI is accessed via a browser at `127.0.0.1:8080`.

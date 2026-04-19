@@ -9,7 +9,7 @@ Uninstalling TUFF-OS will render the following **physically unrecoverable**:
 - **All files and data** stored within TUFF-FS.
 - Genesis blocks, UserAuthDB, and Emergency Areas.
 - All security audit trails (with minor exceptions).
-- Any traces of virtual drives as seen from the application layer.
+- Any traces of virtual drives as seen from the Upper OS.
 
 **IF YOU HAVE NOT BACKED UP YOUR DATA, IT WILL BE PERMANENTLY LOST.**  
 **Ensure a complete backup is performed before proceeding.**

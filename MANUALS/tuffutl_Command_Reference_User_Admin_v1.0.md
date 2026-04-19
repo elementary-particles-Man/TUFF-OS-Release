@@ -1,9 +1,9 @@
 # tuffutl Command Reference (for Users & Admins) v1.1.0
 
 **Last Updated**: March 22, 2026  
-**Target**: TUFF-OS Administrators and Users operating from the application layer
+**Target**: TUFF-OS Administrators and Users operating from the Upper OS
 
-`tuffutl` is the sole authorized management interface for TUFF-OS. It mediates all physical layer operations and completely isolates direct access from the application layer.
+`tuffutl` is the sole authorized management interface for TUFF-OS. It mediates all physical layer operations and completely isolates direct access from the Upper OS.
 
 ---
 

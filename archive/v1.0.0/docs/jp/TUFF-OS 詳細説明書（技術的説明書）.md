@@ -5,15 +5,7 @@
 
 ## 1. アーキテクチャ概要
 
-### 🚀 徹底的なZRAM圧縮アーキテクチャ (Sovereign ZRAM)
-TUFF-OSは、GoogleのSnappy/LZ4アルゴリズムの思想をベアメタルレベルで統合しています。
-システムメモリ（Sovereign Heap）の大部分を「インメモリ圧縮プール」として確保し、
-Unique Queue (UQ)のデータやファイルシステムのキャッシュを透過的かつ超高速に圧縮・伸張します。
-これにより、極端にメモリが少ない環境でも、実質的なメモリ容量を数倍に拡張し、
-Vulkan GPUオフロードやPQC（耐量子暗号）の並列処理をリソース枯渇なしに実行し続けます。
-
-
-TUFF-OSは、上位OS（Windows / TUFF-KERNEL / macOS等）の**下位レイヤー**で稼働するセキュリティ基盤OSです。  
+TUFF-OSは、上位OS（Windows / Linux / macOS等）の**下位レイヤー**で稼働するセキュリティ基盤OSです。  
 論理的なファイルシステムの脆弱性を排除し、**物理セクタ（LBA）への直接アクセス**と**数学的暗号（KEY-CSE）**を組み合わせることで、「絶対防衛圏」を構築します。
 
 ```mermaid
@@ -22,7 +14,7 @@ flowchart TD
     --> B[非同期ランタイム\nZero-Allocation Waker]
     B --> C[ストレージ管理\nTUFF-FS\nUQ / HWキュー / N冗長 / J世代]
     C --> D[セキュリティ層\nDeception / Isolation / TagGroupMask / KAIRO]
-    D --> E[上位OS\nWindows / TUFF-KERNEL / macOS]
+    D --> E[上位OS\nWindows / Linux / macOS]
 
     classDef phys fill:#1e3a8a,color:#fff,stroke:#60a5fa,stroke-width:3px
     classDef runtime fill:#166534,color:#fff,stroke:#4ade80,stroke-width:3px

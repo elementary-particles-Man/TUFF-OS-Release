@@ -10,15 +10,7 @@ This repository contains the TUFF-OS LiveUSB installation images and release art
 **USE AT YOUR OWN RISK.** TUFF-OS interfaces directly with the physical layer. The developers are not responsible for any data loss or hardware damage.
 
 ## About TUFF-OS
-
-### 🚀 Absolute ZRAM Compression Architecture (Sovereign ZRAM)
-TUFF-OS integrates the extreme memory-efficiency concepts inspired by Google's Snappy/LZ4 at the bare-metal level.
-A massive portion of the system memory (Sovereign Heap) is designated as an "in-memory compression pool",
-transparently and ultra-fastly compressing/decompressing Unique Queue (UQ) data and filesystem caches.
-This effectively multiplies available RAM, allowing Vulkan GPU offloading and PQC parallel processing 
-to run continuously without resource exhaustion, even on severely memory-constrained nodes.
-
-The Ultimate Fortress Foundation OS (TUFF-OS) is a **Pure Rust Bare-metal Sovereign OS**, completely independent of TUFF-KERNEL or any legacy kernel. By taking direct control from UEFI via `ExitBootServices`, it asserts absolute dominance over the GDT, IDT, and Paging. It provides absolute data sovereignty at the physical layer, enforced by Hardware-Native Security (NX-Bit & 4-level page tables), and extreme performance via bare-metal GPU and AVX orchestration.
+The Ultimate Fortress Foundation OS (TUFF-OS) is a security-focused OS that provides absolute data sovereignty at the physical layer.
 
 ## Distribution
 - **Version**: 1.1.0 (LiveUSB Installer Release)
@@ -34,7 +26,7 @@ The Ultimate Fortress Foundation OS (TUFF-OS) is a **Pure Rust Bare-metal Sovere
    - `latest/update-metadata.json`
 2. Write `latest/TUFF-OS-latest.iso` directly to a USB drive. Do not extract the ISO and do not copy its files manually.
 3. Recommended writing tools:
-   - TUFF-KERNEL: `sudo dd if=latest/TUFF-OS-latest.iso of=/dev/sdX bs=4M status=progress oflag=sync`
+   - Linux: `sudo dd if=latest/TUFF-OS-latest.iso of=/dev/sdX bs=4M status=progress oflag=sync`
    - Windows: Rufus or balenaEtcher in raw image write mode
 4. Boot the target machine in UEFI mode from that USB drive and follow the installer flow.
 5. Keep the `.sigv1` file and `update-metadata.json` together with the ISO when mirroring or redistributing the release.

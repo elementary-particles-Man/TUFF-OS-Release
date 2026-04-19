@@ -34,7 +34,7 @@ When entering Isolation Mode, the following processes are executed **immediately
    - Forced Logout of all active sessions.
 
 2. **Complete Physical I/O Blockade**
-   - Reads from application layer → Return permanent random noise (ChaCha20 + LBA phase).
+   - Reads from Upper OS → Return permanent random noise (ChaCha20 + LBA phase).
    - Writes → Mimic STATUS_SUCCESS while actually performing a Silent Drop.
    - File Creation / Directory Ops → Mimic ENOENT (Not Found).
 

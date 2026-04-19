@@ -52,7 +52,7 @@
 1. Genesis verification at boot → 3N Mismatch (Consensus Failure).
 2. Automatic transition to Isolation Mode.
    - All sessions discarded.
-   - Physical I/O blocked (disks become invisible to the application layer).
+   - Physical I/O blocked (disks become invisible to the Upper OS).
    - "Consensus Failure → Isolation" recorded in witness.log.
 
 **Operational Response**

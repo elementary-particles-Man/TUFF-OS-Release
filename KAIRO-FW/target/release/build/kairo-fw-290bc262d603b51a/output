@@ -1,2 +1,0 @@
-cargo:rerun-if-changed=/media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/src/kairo-daemon/shaders/packet_prefilter.comp
-cargo:rerun-if-changed=/media/flux/THPDOC/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/src/kairo-daemon/shaders/audit_prefilter.comp

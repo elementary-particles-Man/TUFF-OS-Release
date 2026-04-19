@@ -1,8 +1,0 @@
-/mnt/efi_test/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/deps/unicode_ident-5b38a4521194b702.d: /home/flux/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/unicode-ident-1.0.18/src/lib.rs /home/flux/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/unicode-ident-1.0.18/src/tables.rs
-
-/mnt/efi_test/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/deps/libunicode_ident-5b38a4521194b702.rlib: /home/flux/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/unicode-ident-1.0.18/src/lib.rs /home/flux/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/unicode-ident-1.0.18/src/tables.rs
-
-/mnt/efi_test/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/deps/libunicode_ident-5b38a4521194b702.rmeta: /home/flux/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/unicode-ident-1.0.18/src/lib.rs /home/flux/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/unicode-ident-1.0.18/src/tables.rs
-
-/home/flux/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/unicode-ident-1.0.18/src/lib.rs:
-/home/flux/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/unicode-ident-1.0.18/src/tables.rs:

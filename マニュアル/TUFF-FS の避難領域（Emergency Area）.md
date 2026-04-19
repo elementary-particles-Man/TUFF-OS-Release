@@ -52,7 +52,7 @@ flowchart TD
 
 ```mermaid
 sequenceDiagram
-    participant User as アプリケーション層
+    participant User as 上位OS
     participant FS as TUFF-FS
     participant Monitor as 監視スレッド
     participant Disk as 物理HDD群
@@ -64,7 +64,7 @@ sequenceDiagram
         Monitor->>FS: HDD2 故障通知
         FS->>Disk: HDD2 の全データを避難領域へ退避開始
         Disk->>Disk: HDD1 / HDD3 / HDD4 の避難領域を使用
-        FS->>User: バックグラウンド退避中（アプリケーション層影響なし）
+        FS->>User: バックグラウンド退避中（上位OS影響なし）
         Disk->>FS: 退避完了報告
         FS->>User: 3N復旧完了通知
     else 新HDD追加
@@ -84,7 +84,7 @@ sequenceDiagram
 
 ```mermaid
 sequenceDiagram
-    participant User as アプリケーション層
+    participant User as 上位OS
     participant FS as TUFF-FS
     participant Monitor as 監視スレッド
     participant Disk as 物理HDD群
@@ -139,7 +139,7 @@ sequenceDiagram
   容量が既存HDDと同等以上であること（避難領域不足を防ぐ）
 
 - **避難領域枯渇時の警報**  
-  使用率90%超でwitness.logに警告記録 + アプリケーション層に通知（任意設定）
+  使用率90%超でwitness.logに警告記録 + 上位OSに通知（任意設定）
 
 ### まとめ
 

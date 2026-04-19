@@ -17,7 +17,7 @@ This chapter presents the performance and integrity benchmarks based on real-wor
 | **Avg. File Rate** | **326.32 files/s** | Approx. 326 writes per second. (Standard ext4 typically handles 50–100 files/s). |
 | **Data Throughput** | Approx. **2.05 GB/s** | Extremely high effective bandwidth (thanks to MQ + Async Scheduler). |
 | **Disk Util (%util)** | **0.40%** (Data device) | Achieved high throughput while the disk remained nearly idle. |
-| **Avg. Latency (await)**| **0.53 ms** | Extremely short wait times → Near-zero impact on the application layer. |
+| **Avg. Latency (await)**| **0.53 ms** | Extremely short wait times → Near-zero impact on the Upper OS. |
 | **Disk Health (SMART)**| **PASSED** (All items) | No anomalies in temperature, WAF, or reallocated sectors after the test. |
 
 ### iostat Excerpt (Peak Load)
@@ -31,7 +31,7 @@ This chapter presents the performance and integrity benchmarks based on real-wor
 
 | Design Philosophy | Measurement Correlation | User Benefit |
 |:---|:---|:---|
-| **MQ + UQ Back-pressure** | Blocks application layer at 80% threshold → Resulting in extremely low %util. | application layer (Windows) remains stable and freeze-free. |
+| **MQ + UQ Back-pressure** | Blocks Upper OS at 80% threshold → Resulting in extremely low %util. | Upper OS (Windows) remains stable and freeze-free. |
 | **N-Redundancy vs J-Generation**| Commit/Reject uses pointer swaps only; Rollback is metadata-only. | Transactions are extremely lightweight. |
 | **Async I/O + IRQ Driven** | Near-zero write latency; minimal CPU footprint. | System responsiveness does not degrade even under high load. |
 | **Direct Physical Write + 3N** | Zero data inconsistency even after power cuts. | Absolute data integrity and fault tolerance are physically guaranteed. |

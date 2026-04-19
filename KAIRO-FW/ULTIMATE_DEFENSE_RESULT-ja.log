@@ -1,6 +1,0 @@
- 4月 19 00:50:24 HP-Note systemd[1]: Started kairo-fw.service - KAIRO Firewall Daemon (Ethics-free).
- 4月 19 00:50:25 HP-Note kairo-fw-daemon[3180879]: 15:50:25 [INFO] configured KAIRO-FW remote guard from files and env
- 4月 19 00:50:25 HP-Note kairo-fw-daemon[3180879]: 15:50:25 [INFO] configured KAIRO queue pressure guard
- 4月 19 00:50:25 HP-Note kairo-fw-daemon[3180879]: 15:50:25 [ERROR] failed to load ACL: read "KAIRO-ACL.txt": No such file or directory (os error 2)
- 4月 19 00:50:25 HP-Note kairo-fw-daemon[3180879]: 15:50:25 [INFO] IPC listener bound at /tmp/tuff-kairo/kairo.sock
- 4月 19 00:50:25 HP-Note kairo-fw-daemon[3180879]: 15:50:25 [INFO] kairo-daemon: listening on 127.0.0.1:8080

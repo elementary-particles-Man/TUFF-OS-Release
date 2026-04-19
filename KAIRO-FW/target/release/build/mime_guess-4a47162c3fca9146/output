@@ -1,1 +1,0 @@
-cargo:rustc-env=MIME_TYPES_GENERATED_PATH=/mnt/efi_test/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/release/build/mime_guess-4a47162c3fca9146/out/mime_types_generated.rs

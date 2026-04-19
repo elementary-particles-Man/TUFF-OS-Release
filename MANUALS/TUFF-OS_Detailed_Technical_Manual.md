@@ -6,7 +6,7 @@
 
 ## 1. Architectural Overview
 
-TUFF-OS is a security foundation OS that runs in the **lower layer** relative to the application layer (Windows, TUFF-KERNEL, macOS, etc.). It eliminates the vulnerabilities of logical file systems by combining **direct physical sector (LBA) access** with **mathematical cryptography (KEY-CSE)** to establish an "Absolute Defense Perimeter."
+TUFF-OS is a security foundation OS that runs in the **lower layer** relative to the Upper OS (Windows, Linux, macOS, etc.). It eliminates the vulnerabilities of logical file systems by combining **direct physical sector (LBA) access** with **mathematical cryptography (KEY-CSE)** to establish an "Absolute Defense Perimeter."
 
 ```mermaid
 flowchart TD
@@ -14,7 +14,7 @@ flowchart TD
     --> B[Asynchronous Runtime\nRuntime-Managed Scheduler]
     B --> C[Storage Management\nTUFF-FS\nUQ / HW Queues / N-Redundancy / J-Generation]
     C --> D[Security Layer\nDeception / Isolation / TagGroupMask / KAIRO]
-    D --> E[application layer\nWindows / TUFF-KERNEL / macOS]
+    D --> E[Upper OS\nWindows / Linux / macOS]
 
     classDef phys fill:#1e3a8a,color:#fff,stroke:#60a5fa,stroke-width:3px
     classDef runtime fill:#166534,color:#fff,stroke:#4ade80,stroke-width:3px
@@ -34,13 +34,13 @@ flowchart TD
 ## 2. Storage Subsystem Details
 
 ### 2.1 Block Devices and LBA Binding
-While recognized as a "JBOD (a single massive virtual drive)" by the application layer, TUFF-OS **directly manages the LBAs of each physical HDD** internally. Because there is no logical structure based on metadata exposed to the application layer, tampering with file tables or logical forensics is **physically impossible**.
+While recognized as a "JBOD (a single massive virtual drive)" by the Upper OS, TUFF-OS **directly manages the LBAs of each physical HDD** internally. Because there is no logical structure based on metadata exposed to the Upper OS, tampering with file tables or logical forensics is **physically impossible**.
 
 ### 2.2 UQ (Unique Queue) and HW Queue Mechanism
 
 ```mermaid
 flowchart LR
-    A[application layer I/O Req] --> B[UQ\nUnique Queue\nZRAM Comp + KEY-CSE Enc]
+    A[Upper OS I/O Req] --> B[UQ\nUnique Queue\nZRAM Comp + KEY-CSE Enc]
     B --> C[Back-pressure\nBlock I/O @ 80%]
     C --> D[HW Queues\nDynamic Allocation]
     D --> E[Physical HDDs\nSequential Write\nRead-Priority Control]
@@ -55,8 +55,8 @@ flowchart LR
     class F crypto
 ```
 
-- **UQ (Unique Queue)**: A buffer zone that handles all write requests from the application layer. Data is compressed on ZRAM and encrypted via KEY-CSE.
-- **Back-pressure Control**: When UQ usage reaches a threshold (default 80%), the system safely sends an I/O block signal to the application layer to prevent system failure.
+- **UQ (Unique Queue)**: A buffer zone that handles all write requests from the Upper OS. Data is compressed on ZRAM and encrypted via KEY-CSE.
+- **Back-pressure Control**: When UQ usage reaches a threshold (default 80%), the system safely sends an I/O block signal to the Upper OS to prevent system failure.
 - **HW Queues and Dispatch**: Encrypted data is distributed to HW queues for each physical HDD. The HDD with the lowest I/O load is dynamically selected, and data is written sequentially to minimize seek latency.
 - **Read-Priority Control**: When a read request enters the queue, ongoing write processes are suspended to prioritize the read, reducing physical disk wear.
 
@@ -80,7 +80,7 @@ Consistently reserves 10% (default) of all HDD capacity. If signs of disk failur
 
 ## 3. Asynchronous Runtime and Memory Management
 
-### 3.1 Sovereign Executive & Async Runtime
+### 3.1 Runtime-Managed Async Runtime
 
 ```mermaid
 flowchart TD

@@ -50,7 +50,7 @@ flowchart TD
 
 ```mermaid
 sequenceDiagram
-    participant User as application layer
+    participant User as Upper OS
     participant FS as TUFF-FS
     participant Monitor as Monitoring Thread
     participant Disk as Physical HDD Group
@@ -62,7 +62,7 @@ sequenceDiagram
         Monitor->>FS: HDD2 Failure Notification
         FS->>Disk: Start Evacuating HDD2 Data to Emergency Area
         Disk->>Disk: Utilize Emergency Areas of HDD1 / HDD3 / HDD4
-        FS->>User: Background Evacuation (No Impact on application layer)
+        FS->>User: Background Evacuation (No Impact on Upper OS)
         Disk->>FS: Evacuation Complete Report
         FS->>User: 3N Recovery Notification
     else New HDD Added
@@ -103,7 +103,7 @@ sequenceDiagram
   Ensure the capacity is equal to or greater than existing HDDs to prevent Emergency Area shortage.
 
 - **Alert on Depletion**
-  Warnings are logged to witness.log if usage exceeds 90% (Optional notification to application layer).
+  Warnings are logged to witness.log if usage exceeds 90% (Optional notification to Upper OS).
 
 ---
 

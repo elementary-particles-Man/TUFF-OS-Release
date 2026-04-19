@@ -6,7 +6,7 @@
 
 ## 1. Architectural Overview
 
-TUFF-OS is a security foundation OS that runs in the **lower layer** relative to the Upper OS (Windows, TUFF-KERNEL, macOS, etc.). It eliminates the vulnerabilities of logical file systems by combining **direct physical sector (LBA) access** with **mathematical cryptography (KEY-CSE)** to establish an "Absolute Defense Perimeter."
+TUFF-OS is a security foundation OS that runs in the **lower layer** relative to the Upper OS (Windows, Linux, macOS, etc.). It eliminates the vulnerabilities of logical file systems by combining **direct physical sector (LBA) access** with **mathematical cryptography (KEY-CSE)** to establish an "Absolute Defense Perimeter."
 
 ```mermaid
 flowchart TD
@@ -14,7 +14,7 @@ flowchart TD
     --> B[Asynchronous Runtime\nZero-Allocation Waker]
     B --> C[Storage Management\nTUFF-FS\nUQ / HW Queues / N-Redundancy / J-Generation]
     C --> D[Security Layer\nDeception / Isolation / TagGroupMask / KAIRO]
-    D --> E[Upper OS\nWindows / TUFF-KERNEL / macOS]
+    D --> E[Upper OS\nWindows / Linux / macOS]
 
     classDef phys fill:#1e3a8a,color:#fff,stroke:#60a5fa,stroke-width:3px
     classDef runtime fill:#166534,color:#fff,stroke:#4ade80,stroke-width:3px

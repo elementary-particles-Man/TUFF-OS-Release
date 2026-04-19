@@ -1,7 +1,7 @@
 # TUFF-OS インストール手順書（ユーザー向け）
 
 **最終更新**: 2026年3月22日  
-**対象**: Windows 11 / TUFF-KERNEL ホスト上でTUFF-OSを導入したい方  
+**対象**: Windows 11 / Linux ホスト上でTUFF-OSを導入したい方  
 **所要時間目安**: 約60〜120分（ストレージ初期化時間による）
 
 ### 重要警告（必ず最初に読んでください）
@@ -16,7 +16,7 @@
 
 ### 準備するもの
 
-1. **ホストマシン**（Windows 11 または TUFF-KERNEL）
+1. **ホストマシン**（Windows 11 または Linux）
 2. **USBメモリ**（8GB以上、FAT32フォーマット済み）
 3. **物理HDD**（3台以上推奨、SATA接続）
 4. **インターネット接続**（初回ビルド時のみ必要）
@@ -26,15 +26,15 @@
 
 #### Step 1: インストーラの入手
 1. 公式リポジトリ（または配布元）から最新のインストーラをダウンロード  
-   - ファイル名例: `tuff-installer-latest.exe`（Windows） / `tuff-installer`（TUFF-KERNEL）
+   - ファイル名例: `tuff-installer-latest.exe`（Windows） / `tuff-installer`（Linux）
 2. **SHA256ハッシュ**を確認し、改ざんがないことを検証（推奨）
 
 #### Step 2: バックアップとディスク準備
 1. 重要なデータは**別のドライブへ完全コピー**  
 2. 対象となるHDDを接続（最低3台、推奨5台）  
-3. **ディスク管理**（Windows）または `lsblk`（TUFF-KERNEL）でデバイス名を確認  
+3. **ディスク管理**（Windows）または `lsblk`（Linux）でデバイス名を確認  
    例: Windows → `\\.\PhysicalDrive2`、`\\.\PhysicalDrive3` など  
-   TUFF-KERNEL → `/dev/sdb`、`/dev/sdc` など  
+   Linux → `/dev/sdb`、`/dev/sdc` など  
    → **間違ったドライブを指定するとデータが消えます**。必ずダブルチェック。
 
 #### Step 3: インストーラの起動
@@ -42,7 +42,7 @@
 1. 管理者権限で `tuff-installer-latest.exe` を実行
 2. 「同意する」をクリックして進む
 
-**TUFF-KERNELの場合**
+**Linuxの場合**
 ```bash
 sudo chmod +x tuff-installer
 sudo ./tuff-installer

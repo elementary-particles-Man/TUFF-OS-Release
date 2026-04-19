@@ -169,7 +169,7 @@ flowchart LR
 |---|---|---|
 |ブート不能時|USBインストーラの「Uninstallモード」起動 → 全ディスクゼロフィル|PIN不要|
 |PIN紛失時|上記手順そのまま実行|データ全消去確定|
-|上位OSに残存ドライバ|Windows: デバイスマネージャーからTUFF-PAL削除<br><br>TUFF-KERNEL: rmmod & rm -rf|再起動必須|
+|上位OSに残存ドライバ|Windows: デバイスマネージャーからTUFF-PAL削除<br><br>Linux: rmmod & rm -rf|再起動必須|
 |ログを残したい|`--keep-log --log-dest /mnt/usb/final.log`|PQC署名付き保存|
 
 **最後の言葉** TUFF-OSは「**生まれた時と同じく、無から現れ、無に帰る**」ことを許すシステムです。

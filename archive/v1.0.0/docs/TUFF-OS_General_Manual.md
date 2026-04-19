@@ -4,7 +4,7 @@
 
 **TUFF-OS (The Ultimate Fortress Foundation OS)** is a fortified operating system designed to **fundamentally eliminate logical vulnerabilities** present in existing operating systems and file systems at the **physical layer level**. Its goal is to establish complete data self-sovereignty and an "Absolute Defense Perimeter."
 
-TUFF-OS operates as a **lower-layer OS** beneath your existing primary OS (TUFF-KERNEL / Windows / macOS). It maintains complete control over all HDD accesses from the Upper OS at the physical layer. This allows all data to be encrypted and protected without the Upper OS's awareness, enabling different security levels on a per-directory basis.
+TUFF-OS operates as a **lower-layer OS** beneath your existing primary OS (Linux / Windows / macOS). It maintains complete control over all HDD accesses from the Upper OS at the physical layer. This allows all data to be encrypted and protected without the Upper OS's awareness, enabling different security levels on a per-directory basis.
 
 ### Required Storage Configuration
 - **SSD**: OS installation area, Physical Queue (UQ) area.
@@ -30,7 +30,7 @@ The OS core operates on a proprietary asynchronous runtime that performs no dyna
 flowchart TD
     A[Physical Layer\nDirect LBA Binding] --> B[Asynchronous Runtime\nZero-Allocation Waker]
     B --> C[Security Layer\nDeception / Isolation / KAIRO]
-    C --> D[Upper OS\nWindows / TUFF-KERNEL / macOS]
+    C --> D[Upper OS\nWindows / Linux / macOS]
 
     classDef phys fill:#1e3a8a,color:#fff,stroke:#60a5fa,stroke-width:2px
     classDef async fill:#166534,color:#fff,stroke:#4ade80,stroke-width:2px

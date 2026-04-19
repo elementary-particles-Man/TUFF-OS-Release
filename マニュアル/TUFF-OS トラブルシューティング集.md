@@ -17,7 +17,7 @@
 
 | 症状 | 原因の可能性 | 対処手順 | 予防・注意 |
 |------|--------------|----------|------------|
-| `fs commit` / `reject` が失敗 | UQ 80%超過（背圧制御） | `tuffutl fs status` でUQ使用率確認 → アプリケーション層で不要ファイルを削除 | 定期的に `tuffutl fs commit` を実行 |
+| `fs commit` / `reject` が失敗 | UQ 80%超過（背圧制御） | `tuffutl fs status` でUQ使用率確認 → 上位OSで不要ファイルを削除 | 定期的に `tuffutl fs commit` を実行 |
 | `fs rollback` が「Not a Generational Path」 | J世代が有効化されていないパス | `tuffutl fs set-j /path` でJ世代有効化後、再実行 | J世代が必要なフォルダは事前に `set-j` |
 | ディスク脱落でデータが見えなくなった | 避難領域不足 | 1. 新HDD接続 → `tuffutl fs append /dev/sdX`<br>2. 自動再同期完了まで待機 | 常に全HDD容量の10%以上の空きを確保 |
 | `fs fsck` で「Consensus Failure」 | 3Nのうち1台が完全破損 | 破損HDDを物理交換 → `tuffutl fs fsck --repair` | 3Nは「2台まで耐性」 |

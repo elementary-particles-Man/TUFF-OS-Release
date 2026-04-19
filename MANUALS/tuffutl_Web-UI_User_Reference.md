@@ -7,15 +7,15 @@
 
 ## 1. Overview
 
-The **tuffutl Web-UI** is a **local-only browser interface** designed for intuitively operating TUFF-OS from an application layer (Windows / TUFF-KERNEL / macOS).
+The **tuffutl Web-UI** is a **local-only browser interface** designed for intuitively operating TUFF-OS from an Upper OS (Windows / Linux / macOS).
 
-- **Design Philosophy**: Visualize the physical layer state while **preventing any direct access from the application layer**.
-- **Operation**: A local server (`tuffwin` / `tufflnx` / `tuffmac`) runs on the application layer, and the UI is accessed via a browser at `127.0.0.1:8080`.
+- **Design Philosophy**: Visualize the physical layer state while **preventing any direct access from the Upper OS**.
+- **Operation**: A local server (`tuffwin` / `tufflnx` / `tuffmac`) runs on the Upper OS, and the UI is accessed via a browser at `127.0.0.1:8080`.
 - **Security**: Completely inaccessible from external networks (localhost only). All communication is encrypted via KEY-CSE.
 
 ```mermaid
 flowchart TD
-    A[application layer Browser] --> B[localhost:8080]
+    A[Upper OS Browser] --> B[localhost:8080]
     B --> C[tuffutl Web-UI]
     C --> D[ZRAM IPC]
     D --> E[TUFF-OS Physical Layer]
@@ -35,14 +35,14 @@ flowchart TD
 ## 2. Access and Authentication
 
 ### 2.1 How to Access
-Access the following URL in your application layer browser:
+Access the following URL in your Upper OS browser:
 
 **URL**: `http://127.0.0.1:8080/`  
 (Port numbers may vary depending on the environment).
 
 ### 2.2 Login Screen
 
-- **User ID**: A unique TUFF-OS ID (separate from your application layer username).
+- **User ID**: A unique TUFF-OS ID (separate from your Upper OS username).
 - **Password**: A secure password of at least 12 characters.
 
 **Upon Successful Login**  

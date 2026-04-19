@@ -3,7 +3,7 @@
 **Last Updated**: March 22, 2026  
 **Target**: TUFF-OS Administrators, Developers, and Advanced Users
 
-`tuffutl` is the sole authorized management interface for TUFF-OS. It mediates all physical layer operations and completely isolates direct access from the application layer.
+`tuffutl` is the sole authorized management interface for TUFF-OS. It mediates all physical layer operations and completely isolates direct access from the Upper OS.
 
 ---
 

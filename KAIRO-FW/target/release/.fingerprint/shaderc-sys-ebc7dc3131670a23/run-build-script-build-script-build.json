@@ -1,1 +1,0 @@
-{"rustc":7785869403364627722,"features":"","declared_features":"","target":0,"profile":0,"path":0,"deps":[[9613419249906886096,"build_script_build",false,9363222607980664749]],"local":[{"Precalculated":"0.8.3"}],"rustflags":["-C","target-cpu=native","-C","target-feature=+avx2,+fma,+bmi1,+bmi2"],"config":0,"compile_kind":0}

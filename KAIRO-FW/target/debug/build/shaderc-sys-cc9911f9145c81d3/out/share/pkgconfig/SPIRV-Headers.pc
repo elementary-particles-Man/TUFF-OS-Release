@@ -1,9 +1,0 @@
-prefix=/mnt/efi_test/Develop/TUFF-OS/TUFF-KAIRO/KAIRO-APP/target/debug/build/shaderc-sys-cc9911f9145c81d3/out
-includedir=${prefix}/include
-
-Name: SPIRV-Headers
-Description: Header files from the SPIR-V registry
-Version: 1.5.5
-Requires:
-Libs:
-Cflags: -I${includedir}

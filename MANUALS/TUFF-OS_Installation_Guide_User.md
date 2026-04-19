@@ -1,7 +1,7 @@
 # TUFF-OS Installation Guide (User Edition)
 
 **Last Updated**: March 22, 2026
-**Target**: Users wishing to deploy TUFF-OS on Windows 11 / TUFF-KERNEL hosts.
+**Target**: Users wishing to deploy TUFF-OS on Windows 11 / Linux hosts.
 **Estimated Duration**: Approx. 60–120 minutes (depending on storage initialization time).
 
 ### CRITICAL WARNING (Read First)
@@ -14,7 +14,7 @@
 
 ### Prerequisites
 
-1. **Host Machine** (Windows 11 or TUFF-KERNEL)
+1. **Host Machine** (Windows 11 or Linux)
 2. **USB Flash Drive** (8GB+, FAT32 formatted)
 3. **Physical HDDs** (Minimum 3 recommended, SATA connection)
 4. **Internet Connection** (Required only for initial build)
@@ -26,14 +26,14 @@
 
 #### Step 1: Obtain the Installer
 1. Download the latest installer from the official repository.
-   - Example filename: `tuff-installer-latest.exe` (Windows) / `tuff-installer` (TUFF-KERNEL)
+   - Example filename: `tuff-installer-latest.exe` (Windows) / `tuff-installer` (Linux)
 2. Verify the **SHA256 hash** to ensure the installer has not been tampered with (Recommended).
 
 #### Step 2: Backup and Disk Preparation
 1. Copy all important data to a **completely separate drive**.
 2. Connect the target HDDs (Minimum 3, recommended 5).
-3. Identify the device names using **Disk Management** (Windows) or `lsblk` (TUFF-KERNEL).
-   - Examples: Windows → `\\.\PhysicalDrive2`, TUFF-KERNEL → `/dev/sdb`.
+3. Identify the device names using **Disk Management** (Windows) or `lsblk` (Linux).
+   - Examples: Windows → `\\.\PhysicalDrive2`, Linux → `/dev/sdb`.
    - **Specifying the wrong drive will result in data loss.** Double-check carefully.
 
 #### Step 3: Launch the Installer
@@ -41,7 +41,7 @@
 1. Run `tuff-installer-latest.exe` with Administrator privileges.
 2. Click "Agree" to proceed.
 
-**TUFF-KERNEL**:
+**Linux**:
 ```bash
 sudo chmod +x tuff-installer
 sudo ./tuff-installer
@@ -94,7 +94,7 @@ tuffutl sys user add yourname --password "StrongPass123!"
 |:---|:---|:---|
 | Installer stops mid-way | Power cut / Disk failure | Check logs, then restart installation (auto-rollback). |
 | `tuffutl sys status` says Genesis Invalid | 2+ disks in 3N set damaged | Replace damaged disks → `tuffutl fs fsck --repair`. |
-| HDDs invisible from application layer | Normal (TUFF-OS hides them) | HDDs are mounted only after `tuffutl sys login`. |
+| HDDs invisible from Upper OS | Normal (TUFF-OS hides them) | HDDs are mounted only after `tuffutl sys login`. |
 | High CPU during 10Gbps load | Vulkan Passthrough missing | Verify `-device vfio-pci` in QEMU/KVM config. |
 
 ---

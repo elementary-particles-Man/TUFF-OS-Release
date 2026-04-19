@@ -7,7 +7,7 @@
 
 ## 1. 概要
 
-**tuffutl Web-UI** は、上位OS（Windows / TUFF-KERNEL / macOS）からTUFF-OSを直感的に操作するための**ローカル専用ブラウザインターフェース**です。
+**tuffutl Web-UI** は、上位OS（Windows / Linux / macOS）からTUFF-OSを直感的に操作するための**ローカル専用ブラウザインターフェース**です。
 
 - **設計思想**: 物理層の状態を可視化しつつ、**上位OSからは一切直接触れさせない**  
 - **動作方式**: 上位OS上でローカルサーバー（`tuffwin` / `tufflnx` / `tuffmac`）が起動し、ブラウザから `127.0.0.1:8080` にアクセス  
