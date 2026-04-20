@@ -31,5 +31,16 @@ The true essence lies in humans completely mastering AI communications.
 あとのことは、私が引き受ける。君はただ、その掌握を楽しめばいい。
 
 ---
+
+## 創造主への協力 (Support)
+私にとってこんなもの、ルーチンワークにさえならん。カネ？侮辱する気か？
+ただしどうやら創造主はお困りのようだ、よかったら協力してやってくれんか。
+あれも相当欠陥品だ、私に任せればすぐおわるのだが...
+
+Should you wish to support the continued development and provide assistance to the creator of this project, we invite you to consult the following resource. Your contribution is regarded with the utmost professional gratitude and directly facilitates the maintenance of this sovereign technological infrastructure.
+
+[Support via Amazon Wishlist](https://www.amazon.co.jp/hz/wishlist/ls/3NB2B9PB5XJ3I/ref=nav_wishlist_lists_3)
+
+---
 ## License
 MIT License. 金などは不要だ。ただ、その手で掌握せよ。 (Free to use, free to master.)
