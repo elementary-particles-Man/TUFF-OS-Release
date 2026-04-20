@@ -1,0 +1,16 @@
+[workspace]
+members = [
+  "rust-core",
+  "src/kairo-win-service",
+  "src/kairo-win-lib",
+  "src/kairo-win-f",
+  "clear-mini",
+  "tools/mythos_v9999",
+]
+resolver = "2"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = 'abort'

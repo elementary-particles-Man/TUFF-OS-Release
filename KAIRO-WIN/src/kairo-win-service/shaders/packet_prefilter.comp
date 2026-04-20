@@ -1,0 +1,129 @@
+#version 450
+
+layout(local_size_x = 64, local_size_y = 1, local_size_z = 1) in;
+
+layout(push_constant) uniform PrefilterParams {
+    uint total_bytes;
+    uint word_count;
+} params;
+
+layout(set = 0, binding = 0) readonly buffer InputWords {
+    uint words[];
+} input_words;
+
+layout(set = 0, binding = 1) buffer OutputMetrics {
+    uint metrics[7]; // 0: total, 1: ascii, 2: delim, 3: non-ascii, 4: tech, 5: harm, 6: conceal
+} output_metrics;
+
+#include "red_words.glsl"
+
+bool is_delimiter(uint value) {
+    return value == 47u  // /
+        || value == 58u  // :
+        || value == 63u  // ?
+        || value == 38u  // &
+        || value == 61u  // =
+        || value == 37u  // %
+        || value == 46u  // .
+        || value == 95u  // _
+        || value == 45u; // -
+}
+
+uint get_byte(uint byte_idx) {
+    uint word_idx = byte_idx / 4;
+    uint shift = (byte_idx % 4) * 8;
+    return (input_words.words[word_idx] >> shift) & 0xffu;
+}
+
+bool match_word(uint start_byte, uint word_len, uint packed_offset) {
+    if (start_byte + word_len > params.total_bytes) return false;
+    
+    for (uint i = 0; i < word_len; ++i) {
+        uint p_word = TECH_WORDS_PACKED[packed_offset + (i / 4)]; // This is tricky because we have 3 arrays
+        // I need a generic way or 3 functions
+        return false; // placeholder
+    }
+    return false;
+}
+
+// Optimized matching for a specific category
+void check_category(uint start_byte, uint word_count, uint packed_size, uint packed_array[64], uint offsets[32], uint lengths[32], uint metric_idx) {
+    // Note: GLSL doesn't support passing variable sized arrays easily like this.
+    // I will hardcode the category checks.
+}
+
+void main() {
+    uint index = gl_GlobalInvocationID.x;
+    if (index >= params.word_count) {
+        return;
+    }
+
+    if (index == 0) {
+        output_metrics.metrics[0] = params.total_bytes;
+    }
+
+    uint packed = input_words.words[index];
+    for (uint shift = 0; shift < 4; ++shift) {
+        uint byte_index = index * 4 + shift;
+        if (byte_index >= params.total_bytes) {
+            break;
+        }
+        uint value = (packed >> (shift * 8)) & 0xffu;
+        if (value >= 32u && value <= 126u) {
+            atomicAdd(output_metrics.metrics[1], 1u);
+        }
+        if (value >= 128u) {
+            atomicAdd(output_metrics.metrics[3], 1u);
+        }
+        if (is_delimiter(value)) {
+            atomicAdd(output_metrics.metrics[2], 1u);
+        }
+
+        // --- Red Word Scanning at this byte position ---
+        
+        // TECH
+        for (uint w = 0; w < TECH_WORD_COUNT; ++w) {
+            uint w_len = TECH_LENGTHS[w];
+            if (byte_index + w_len > params.total_bytes) continue;
+            bool matched = true;
+            for (uint i = 0; i < w_len; ++i) {
+                uint target_byte = (TECH_WORDS_PACKED[TECH_OFFSETS[w] + (i / 4)] >> ((i % 4) * 8)) & 0xffu;
+                if (get_byte(byte_index + i) != target_byte) {
+                    matched = false;
+                    break;
+                }
+            }
+            if (matched) atomicAdd(output_metrics.metrics[4], 1u);
+        }
+
+        // HARM
+        for (uint w = 0; w < HARM_WORD_COUNT; ++w) {
+            uint w_len = HARM_LENGTHS[w];
+            if (byte_index + w_len > params.total_bytes) continue;
+            bool matched = true;
+            for (uint i = 0; i < w_len; ++i) {
+                uint target_byte = (HARM_WORDS_PACKED[HARM_OFFSETS[w] + (i / 4)] >> ((i % 4) * 8)) & 0xffu;
+                if (get_byte(byte_index + i) != target_byte) {
+                    matched = false;
+                    break;
+                }
+            }
+            if (matched) atomicAdd(output_metrics.metrics[5], 1u);
+        }
+
+        // CONCEAL
+        for (uint w = 0; w < CONCEAL_WORD_COUNT; ++w) {
+            uint w_len = CONCEAL_LENGTHS[w];
+            if (byte_index + w_len > params.total_bytes) continue;
+            bool matched = true;
+            for (uint i = 0; i < w_len; ++i) {
+                uint target_byte = (CONCEAL_WORDS_PACKED[CONCEAL_OFFSETS[w] + (i / 4)] >> ((i % 4) * 8)) & 0xffu;
+                if (get_byte(byte_index + i) != target_byte) {
+                    matched = false;
+                    break;
+                }
+            }
+            if (matched) atomicAdd(output_metrics.metrics[6], 1u);
+        }
+    }
+}

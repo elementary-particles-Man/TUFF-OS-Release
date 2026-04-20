@@ -1,0 +1,34 @@
+# --- KAIRO Hybrid ACL (Default) ---
+# Priority: KILL > BYPASS > ALLOW > DEFAULT
+# Default policy: DENY unknown external destinations (optionally FORCE_OFF by runtime policy)
+
+# 1) BYPASS: immediate fast-path, no DPI/no deep logging for matched LAN/local traffic
+BYPASS CIDR 127.0.0.0/8
+BYPASS CIDR 10.0.0.0/8
+BYPASS CIDR 172.16.0.0/12
+BYPASS CIDR 192.168.0.0/16
+
+# 2) KILL: immediate drop + force OFF + extended witness log
+KILL HOST c2.malicious-example.com
+KILL HOST competitor-telemetry.com
+KILL PROTO SMTP
+KILL PROTO SMB DST !LAN
+KILL PORT 25 DST !LAN
+KILL PORT 465 DST !LAN
+KILL PORT 587 DST !LAN
+KILL METHOD PUT,POST HOST UNKNOWN
+KILL METHOD PUT,POST SIZE >100KB HOST UNKNOWN
+
+# 3) ALLOW: only effective while switch is ON
+ALLOW HOST api.openai.com PROTO HTTPS
+ALLOW HOST api.anthropic.com PROTO HTTPS
+ALLOW HOST generativelanguage.googleapis.com PROTO HTTPS
+ALLOW HOST ntp.ubuntu.com PROTO NTP
+
+# 4) Optional local infra (uncomment if needed)
+# ALLOW PROTO DNS HOST 192.168.0.1
+# ALLOW PROTO DNS HOST 10.0.0.1
+# ALLOW PROTO NTP HOST 192.168.0.1
+
+# 5) Implicit tail rule
+# DEFAULT DENY
