@@ -1,5 +1,8 @@
 # KAIRO-WIN: 沈黙の審判 / Absolute AI-Proxy Shield
 
+"Mythos? It is of no consequence... so long as it doesn't hit!"
+（Mythos？ 当たらなければ、どうということはない！）
+
 ...解析？別に構わんが、その分、君たちの絶望が増えるだけだ。
 
 試し切りに丁度いいRustを作った。
