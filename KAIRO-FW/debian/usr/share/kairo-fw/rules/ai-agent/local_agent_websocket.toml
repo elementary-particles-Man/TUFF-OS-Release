@@ -1,0 +1,35 @@
+[threat]
+id = "AICODING-LOCALHOST-WEBSOCKET-TAKEOVER-2026"
+name = "AI Coding Agent Localhost WebSocket Takeover"
+class = "ai_coding_agent_localhost_websocket_takeover"
+severity = "critical"
+cvss = "9.7"
+gate = "LocalAgentWebSocketGate"
+ecosystem = "AI coding agent / IDE extension / local web UI / WebSocket"
+component = "Cline Kanban local server"
+surfaces = [
+  "localhost HTTP/WebSocket listener",
+  "127.0.0.1 or ::1 local agent server",
+  "WebSocket upgrade endpoint",
+  "missing Origin validation",
+  "missing session token / auth token",
+  "runtime snapshot endpoint",
+  "terminal I/O endpoint",
+  "session control endpoint",
+  "bypass permissions setting",
+  "browser-to-localhost access path",
+]
+indicators = [
+  "localhost listener",
+  "WebSocket endpoint",
+  "missing Origin validation",
+  "missing auth token",
+  "runtime snapshot endpoint",
+  "terminal I/O endpoint",
+  "session control endpoint",
+  "bypass permissions",
+  "affected cline-kanban version",
+]
+action = "fail_closed_or_quarantine"
+implementation_ref = "TUFF-KAIRO/crates/kairo-sec/src/local_agent_websocket.rs"
+notes = "Static posture gate only. No live WebSocket probing, localhost exploit probe, terminal input, workspace exfiltration, session control, live port scanning, or exploit reproduction is performed."

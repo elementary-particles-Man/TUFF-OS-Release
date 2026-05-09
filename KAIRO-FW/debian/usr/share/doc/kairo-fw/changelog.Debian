@@ -1,0 +1,9 @@
+kairo-fw (0.3.0-1) unstable; urgency=medium
+
+  * Release 0.3.0.
+  * Replaced placeholder wrapper with real KAIRO CUI binary.
+  * Integrated real kairo-core, kairo-net, and kairo-sec stack.
+  * Bundled security rules and metadata.
+  * Explicitly excluded ethics engine from package payload.
+
+ -- elementary-particles-Man <root@localhost>  Sat, 09 May 2026 02:37:36 +0000
