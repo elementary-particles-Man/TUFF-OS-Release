@@ -1,0 +1,28 @@
+[threat]
+id = "AIAGENT-ENCODED-PROMPT-WALLET-ABUSE-2026"
+name = "Encoded Prompt Injection Agent Wallet Abuse"
+class = "encoded_prompt_injection_agent_wallet_abuse"
+severity = "critical"
+gate = "AgentCommandBoundaryGate"
+ecosystem = "AI agent / crypto wallet / Web3 / social bot / tool execution bridge"
+component = "LLM decode/translation path to wallet command bridge"
+surfaces = [
+  "Morse code encoded instructions",
+  "Base64/hex/ROT13 encoded instructions",
+  "Unicode homoglyph or zero-width hidden instructions",
+  "decode/translate/summarize then execute workflow",
+  "cross-agent command relay",
+  "wallet transfer/swap/signing tools",
+  "public social prompt to private wallet action path",
+]
+indicators = [
+  "Morse encoded instruction",
+  "Base64/hex encoded instruction",
+  "zero-width hidden instruction",
+  "decode-then-execute request",
+  "cross-agent relay",
+  "wallet transfer/swap/sign intent",
+]
+action = "fail_closed"
+implementation_ref = "TUFF-KAIRO/crates/kairo-sec/src/encoded_prompt_wallet.rs"
+notes = "Static command-boundary gate only. No wallet client, signing, chain RPC, transaction generation, payload execution, or live agent relay."

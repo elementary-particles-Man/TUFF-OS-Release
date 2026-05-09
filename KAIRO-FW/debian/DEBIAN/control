@@ -1,0 +1,11 @@
+Package: kairo-fw
+Version: 0.3.0-1
+Section: utils
+Priority: optional
+Architecture: amd64
+Maintainer: elementary-particles-Man
+Description: KAIRO CUI operational package / rule and posture verification surface.
+ This package provides the real KAIRO Management CLI (kairo) backed by the
+ core/net/sec stack. It is used for rule, posture, and security verification.
+ Note: This release does not include the ethics engine and does not claim
+ production kernel-level firewall enforcement.

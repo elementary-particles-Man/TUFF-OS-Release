@@ -1,0 +1,29 @@
+[threat]
+cve_id = "CVE-2026-41050"
+id = "CVE-2026-41050-RANCHER-FLEET-GITOPS-PRIVESC"
+name = "Rancher Fleet GitOps Cluster-Admin Privilege Escalation"
+class = "kubernetes_gitops_privilege_escalation"
+severity = "critical"
+cvss = "9.9"
+cwe = "CWE-863 Incorrect Authorization"
+ecosystem = "kubernetes / rancher / fleet / helm"
+component = "rancher/fleet helm deployer"
+gate = "KubernetesGitOpsGate"
+surfaces = [
+  "Fleet GitRepo",
+  "Helm chart templates",
+  "Helm lookup()",
+  "fleet.yaml helm.valuesFrom",
+  "cross-namespace Secret reads",
+  "fleet-agent cluster-admin deployment path",
+]
+indicators = [
+  "vulnerable Fleet version",
+  "Helm lookup Secret",
+  "fleet.yaml helm.valuesFrom Secret",
+  "cross-namespace Secret target",
+  "fleet.cattle.io GitRepo",
+]
+action = "quarantine_or_fail_closed"
+implementation_ref = "TUFF-KAIRO/crates/kairo-sec/src/rancher_fleet.rs"
+notes = "Passive static GitOps gate only. No helm/kubectl execution, live cluster access, Secret reads, Git mutation, or exploit reproduction."

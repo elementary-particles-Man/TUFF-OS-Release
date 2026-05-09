@@ -1,0 +1,29 @@
+[threat]
+id = "PAMDOORA-LINUX-PAM-BACKDOOR-2026"
+name = "PamDOORa"
+class = "linux_auth_path_backdoor"
+severity = "critical"
+gate = "HostAuthIntegrityGate"
+surfaces = [
+  "/etc/pam.d/",
+  "PAM shared object directories",
+  "sshd PAM configuration",
+  "auth stack module ordering",
+  "credential dump artifacts",
+]
+related_but_distinct = [
+  "Plague PAM backdoor",
+  "PumaBot pam_unix.so replacement",
+  "pam_exec persistence",
+]
+indicators = [
+  "pam config drift",
+  "unknown PAM module",
+  "pam_exec auth path",
+  "non-root owned PAM .so",
+  "writable PAM .so",
+  "credential dump artifact",
+]
+action = "quarantine_or_fail_closed"
+implementation_ref = "TUFF-KAIRO/crates/kairo-sec/src/pamdoora.rs"
+notes = "Passive host-auth integrity gate only. No credential collection, bypass code, malware sample, or active PAM execution."
