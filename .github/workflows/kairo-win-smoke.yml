@@ -73,16 +73,19 @@ jobs:
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
       - name: Negative Test (Invalid Hex)
+        id: negative_test
+        continue-on-error: true
         shell: pwsh
         run: |
-          $ErrorActionPreference = 'Continue'
-          # Run the command and capture output/exit code manually
           .\KAIRO-WIN\kairo-win-adapter.exe inspect --data ZZZZ
-          $exitCode = $LASTEXITCODE
-          Write-Host "Command exited with code: $exitCode"
-          if ($exitCode -eq 0) {
-            Write-Error "[FAIL] Invalid hex data unexpectedly returned exit code 0"
-            exit 1
+          # The step will 'fail' here, but continue-on-error will keep the job going.
+
+      - name: Validate Negative Test Result
+        shell: pwsh
+        run: |
+          if ("${{ steps.negative_test.outcome }}" -eq "failure") {
+            Write-Host "[PASS] Invalid hex data correctly caused command failure as expected."
           } else {
-            Write-Host "[PASS] Invalid hex data correctly returned non-zero exit code ($exitCode)"
+            Write-Error "[FAIL] Invalid hex data unexpectedly returned success (exit code 0)"
+            exit 1
           }
