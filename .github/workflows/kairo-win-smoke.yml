@@ -1,0 +1,91 @@
+name: KAIRO-WIN Smoke Test
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'KAIRO-WIN/**'
+      - '.github/workflows/kairo-win-smoke.yml'
+
+jobs:
+  smoke-test:
+    name: Windows Smoke Test
+    runs-on: windows-latest
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Verify File Presence
+        shell: pwsh
+        run: |
+          $files = @(
+            "KAIRO-WIN/kairo-win-adapter.exe",
+            "KAIRO-WIN/SHA256SUMS",
+            "KAIRO-WIN/README.md",
+            "KAIRO-WIN/REFERENCE.md"
+          )
+          foreach ($file in $files) {
+            if (Test-Path $file) {
+              Write-Host "[PASS] $file exists."
+            } else {
+              Write-Error "[FAIL] $file is missing!"
+              exit 1
+            }
+          }
+
+      - name: Verify SHA256 Integrity
+        shell: pwsh
+        run: |
+          $expectedHash = "f9977653fb639f4b04a0d67aa3a2ad2f9f96ca613a440c7d918fbbac3e40e2e8"
+          $actualHash = (Get-FileHash .\KAIRO-WIN\kairo-win-adapter.exe -Algorithm SHA256).Hash.ToLower()
+          Write-Host "Expected: $expectedHash"
+          Write-Host "Actual:   $actualHash"
+          if ($actualHash -eq $expectedHash) {
+            Write-Host "[PASS] SHA256 hash matches."
+          } else {
+            Write-Error "[FAIL] SHA256 hash mismatch!"
+            exit 1
+          }
+
+      - name: Test --help
+        shell: pwsh
+        run: |
+          .\KAIRO-WIN\kairo-win-adapter.exe --help
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Test status
+        shell: pwsh
+        run: |
+          .\KAIRO-WIN\kairo-win-adapter.exe status
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Test status --adapter
+        shell: pwsh
+        run: |
+          .\KAIRO-WIN\kairo-win-adapter.exe status --adapter vEthernet-0
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Test valid inspect
+        shell: pwsh
+        run: |
+          .\KAIRO-WIN\kairo-win-adapter.exe inspect --data 4500001400004000400600007f0000017f000001
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Negative Test (Invalid Hex)
+        shell: pwsh
+        run: |
+          try {
+            $ErrorActionPreference = 'Continue'
+            .\KAIRO-WIN\kairo-win-adapter.exe inspect --data ZZZZ
+            $exitCode = $LASTEXITCODE
+            Write-Host "Command exited with code: $exitCode"
+            if ($exitCode -eq 0) {
+              Write-Error "[FAIL] Invalid hex data unexpectedly returned exit code 0"
+              exit 1
+            } else {
+              Write-Host "[PASS] Invalid hex data correctly returned non-zero exit code ($exitCode)"
+            }
+          } catch {
+            Write-Host "Caught expected exception or error: $_"
+          }
