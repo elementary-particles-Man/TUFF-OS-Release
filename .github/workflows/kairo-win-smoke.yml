@@ -75,17 +75,14 @@ jobs:
       - name: Negative Test (Invalid Hex)
         shell: pwsh
         run: |
-          try {
-            $ErrorActionPreference = 'Continue'
-            .\KAIRO-WIN\kairo-win-adapter.exe inspect --data ZZZZ
-            $exitCode = $LASTEXITCODE
-            Write-Host "Command exited with code: $exitCode"
-            if ($exitCode -eq 0) {
-              Write-Error "[FAIL] Invalid hex data unexpectedly returned exit code 0"
-              exit 1
-            } else {
-              Write-Host "[PASS] Invalid hex data correctly returned non-zero exit code ($exitCode)"
-            }
-          } catch {
-            Write-Host "Caught expected exception or error: $_"
+          $ErrorActionPreference = 'Continue'
+          # Run the command and capture output/exit code manually
+          .\KAIRO-WIN\kairo-win-adapter.exe inspect --data ZZZZ
+          $exitCode = $LASTEXITCODE
+          Write-Host "Command exited with code: $exitCode"
+          if ($exitCode -eq 0) {
+            Write-Error "[FAIL] Invalid hex data unexpectedly returned exit code 0"
+            exit 1
+          } else {
+            Write-Host "[PASS] Invalid hex data correctly returned non-zero exit code ($exitCode)"
           }
