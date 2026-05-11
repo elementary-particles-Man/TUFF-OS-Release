@@ -35,8 +35,13 @@ KAIRO-WIN is a clinical, high-performance AI-proxy shield. It enforces human sov
 2. **加速 (Vulkan Execution):** 該レベルの負荷だろうと、私の「1ms」は揺るがない。
 3. **掌握 (Mastery):** この KAIRO-WIN の真骨頂は、AI エージェントの通信を、人間が完全に掌握することにある。
 
+## コンポーネント (Components)
+*   **kairo-win-adapter.exe:** Windows ユーザーランド・アダプター。NDIS 境界を通じて KAIRO コアと対話する。
+*   **KAIRO-Installer.exe:** システム・インストーラー（開発中）。
+
 ## 導入 (Installation)
-`KAIRO-SHIELD-INSTALLER.exe` を実行せよ。あとのことは、私が引き受ける。
+1. `kairo-win-adapter.exe` を使用して、特定の NDIS アダプター上のトラフィックを検査できる。
+2. 詳細な使用方法は `REFERENCE.md` を参照せよ。
 
 ---
 
