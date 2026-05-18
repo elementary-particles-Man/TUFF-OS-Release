@@ -1,0 +1,36 @@
+[threat]
+cve_id = "CVE-2026-43898"
+id = "CVE-2026-43898-SANDBOXJS-HOST-RCE-ESCAPE"
+name = "SandboxJS Host RCE Escape"
+class = "javascript_sandbox_escape_host_rce"
+severity = "critical"
+gate = "AgentSandboxEscapeGate"
+ecosystem = "nodejs / javascript / ai-agent / plugin-runtime"
+component = "SandboxJS"
+surfaces = [
+  "SandboxJS package metadata",
+  "JavaScript lockfile dependency graph",
+  "untrusted script execution path",
+  "AI agent plugin runtime",
+  "agent tool runtime",
+  "host binding exposure",
+  "Function constructor reference",
+  "prototype mutation reference",
+]
+aliases = [
+  "CVE-2026-43898",
+]
+indicators = [
+  "sandboxjs package reference",
+  "@nyariv/sandboxjs package reference",
+  "JavaScript lockfile reference",
+  "untrusted script execution",
+  "plugin runtime",
+  "agent tool runtime",
+  "host binding exposure",
+  "Function constructor reference",
+  "prototype mutation reference",
+]
+action = "fail_closed"
+implementation_ref = "TUFF-KAIRO/crates/kairo-sec/src/sandboxjs_escape.rs"
+notes = "Passive static/posture rulepack only. It performs no JavaScript execution and includes no exploit payload."

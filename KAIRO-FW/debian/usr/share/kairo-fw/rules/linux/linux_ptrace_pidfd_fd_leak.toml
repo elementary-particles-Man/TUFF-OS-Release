@@ -1,0 +1,34 @@
+[threat]
+cve_id = "CVE-2026-46333"
+id = "LINUX-PTRACE-PIDFD-FD-LEAK-2026"
+name = "ssh-keysign-pwn Linux ptrace/pidfd FD leak"
+class = "linux_kernel_ptrace_pidfd_fd_leak"
+severity = "critical"
+gate = "LinuxPtracePidfdFdLeakGate"
+ecosystem = "linux"
+component = "kernel ptrace / pidfd / secret FD exposure posture"
+surfaces = [
+  "kernel version string",
+  "pidfd_getfd availability metadata",
+  "ssh-keysign path presence metadata",
+  "chage path presence metadata",
+  "Yama ptrace_scope metadata",
+  "operator confirmed patched override",
+]
+aliases = [
+  "ssh-keysign-pwn",
+  "Linux ptrace pidfd FD leak",
+  "HostSecretFdExposureGate",
+  "pidfd_getfd FD leak",
+]
+indicators = [
+  "kernel version string",
+  "pidfd_getfd availability metadata",
+  "ssh-keysign path presence metadata",
+  "chage path presence metadata",
+  "Yama ptrace_scope metadata",
+  "operator confirmed patched override",
+]
+action = "fail_closed"
+implementation_ref = "TUFF-KAIRO/crates/kairo-sec/src/linux_ptrace_pidfd_fd_leak.rs"
+notes = "Passive kernel patch posture detection only. No pidfd_getfd, no ptrace, no ssh-keysign/chage execution, no exploit reproduction."
