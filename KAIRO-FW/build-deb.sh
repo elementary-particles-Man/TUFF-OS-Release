@@ -5,7 +5,7 @@ set -euo pipefail
 # Version: 0.3.0-1
 
 BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-KAIRO_ROOT="$(cd "${BASE_DIR}/../TUFF-KAIRO" && pwd)"
+KAIRO_ROOT="$(cd "${BASE_DIR}/../../TUFF-KAIRO" && pwd)"
 DEBIAN_STAGING="${BASE_DIR}/debian"
 DEB_OUT_DIR="${BASE_DIR}/deb"
 
