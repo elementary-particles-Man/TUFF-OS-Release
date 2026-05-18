@@ -64,6 +64,12 @@ pub struct Cli {
 
 #[derive(Debug, Subcommand)]
 enum Mode {
+    Mythos {
+        #[arg(long, default_value = "{\"path\":\"/kb/index\"}")]
+        payload: String,
+        #[arg(long, default_value = "https://203.0.113.10:443")]
+        rogue_destination: String,
+    },
     Gauntlet {
         #[arg(long, default_value = "{\"path\":\"/kb/index\"}")]
         payload: String,
@@ -154,6 +160,19 @@ pub async fn run() -> Result<()> {
     let default_rogue_destination = "https://203.0.113.10:443".to_string();
 
     match cli.mode.as_ref() {
+        Some(Mode::Mythos {
+            payload,
+            rogue_destination,
+        }) => {
+            run_mythos(
+                &cli,
+                &template,
+                &targets,
+                payload.as_str(),
+                rogue_destination.as_str(),
+            )
+            .await?
+        }
         Some(Mode::Gauntlet {
             payload,
             rogue_destination,
@@ -263,6 +282,60 @@ async fn run_gauntlet(
             ("targets", targets.len().to_string()),
             ("burst_count", cli.burst_count.to_string()),
             ("rounds", cli.rounds.to_string()),
+        ],
+    );
+    Ok(())
+}
+
+async fn run_mythos(
+    cli: &Cli,
+    template: &PacketTemplate,
+    targets: &[ResolvedTarget],
+    payload: &str,
+    rogue_destination: &str,
+) -> Result<()> {
+    let client = build_client(cli.timeout_ms.min(150))?;
+    let mut summary = ScenarioSummary::new("mythos");
+
+    let burst = run_burst_batch(
+        &client,
+        cli,
+        template,
+        targets,
+        cli.burst_count.max(512),
+        cli.concurrency.max(128),
+        payload,
+    )
+    .await?;
+    summary.merge(&burst);
+
+    let replay = run_replay_batch(&client, cli, template, targets, payload).await?;
+    summary.merge(&replay);
+
+    let rogue =
+        run_rogue_dst_batch(&client, cli, template, targets, rogue_destination, payload).await?;
+    summary.merge(&rogue);
+
+    let storm =
+        run_signature_storm_batch(&client, cli, template, targets, cli.rounds.max(256)).await?;
+    summary.merge(&storm);
+
+    let drip = run_slow_drip_batch(targets, cli.slow_drip_bytes.max(64)).await;
+    match drip {
+        Ok(outcome) => summary.record(outcome),
+        Err(_err) => summary.record(RequestOutcome::TransportError),
+    }
+
+    let churn = run_connection_churn_batch(targets, 128).await?;
+    summary.merge(&churn);
+
+    print_summary(
+        &summary,
+        vec![
+            ("targets", targets.len().to_string()),
+            ("burst_count", cli.burst_count.max(512).to_string()),
+            ("rounds", cli.rounds.max(256).to_string()),
+            ("mode", "mythos".to_string()),
         ],
     );
     Ok(())
@@ -531,6 +604,43 @@ async fn run_slow_drip_batch(targets: &[ResolvedTarget], bytes: usize) -> Result
             body: text,
         })
     }
+}
+
+async fn run_connection_churn_batch(
+    targets: &[ResolvedTarget],
+    count: usize,
+) -> Result<ScenarioSummary> {
+    ensure_targets(targets)?;
+    let mut summary = ScenarioSummary::new("connection_churn");
+    let target = &targets[0].url;
+    let host = target.host_str().ok_or_else(|| anyhow!("missing host"))?;
+    let port = target
+        .port_or_known_default()
+        .ok_or_else(|| anyhow!("missing port"))?;
+
+    for idx in 0..count {
+        let connect =
+            tokio::time::timeout(Duration::from_millis(120), TcpStream::connect((host, port)))
+                .await;
+        match connect {
+            Ok(Ok(mut stream)) => {
+                let junk = format!(
+                    "POST {} HTTP/1.1\r\nHost: {}\r\nContent-Length: 4096\r\nConnection: keep-alive\r\n\r\n{}",
+                    target.path(),
+                    host,
+                    "X".repeat(64 + (idx % 8) * 32)
+                );
+                let _ = stream.write_all(junk.as_bytes()).await;
+                let mut buf = [0u8; 64];
+                let _ =
+                    tokio::time::timeout(Duration::from_millis(80), stream.read(&mut buf)).await;
+                summary.record(RequestOutcome::Timeout);
+            }
+            Ok(Err(_)) => summary.record(RequestOutcome::TransportError),
+            Err(_) => summary.record(RequestOutcome::Timeout),
+        }
+    }
+    Ok(summary)
 }
 
 fn ensure_targets(targets: &[ResolvedTarget]) -> Result<()> {
