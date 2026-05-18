@@ -64,6 +64,18 @@ pub struct Cli {
 
 #[derive(Debug, Subcommand)]
 enum Mode {
+    LoopbackLimit {
+        #[arg(long, default_value = "http://127.0.0.1:8080/send")]
+        endpoint: String,
+        #[arg(long, default_value_t = 1024)]
+        burst_count: usize,
+        #[arg(long, default_value_t = 256)]
+        concurrency: usize,
+        #[arg(long, default_value_t = 8)]
+        rounds: usize,
+        #[arg(long, default_value_t = 128)]
+        timeout_ms_floor: u64,
+    },
     Mythos {
         #[arg(long, default_value = "{\"path\":\"/kb/index\"}")]
         payload: String,
@@ -170,6 +182,24 @@ pub async fn run() -> Result<()> {
                 &targets,
                 payload.as_str(),
                 rogue_destination.as_str(),
+            )
+            .await?
+        }
+        Some(Mode::LoopbackLimit {
+            endpoint,
+            burst_count,
+            concurrency,
+            rounds,
+            timeout_ms_floor,
+        }) => {
+            run_loopback_limit(
+                &cli,
+                &template,
+                endpoint.as_str(),
+                *burst_count,
+                *concurrency,
+                *rounds,
+                *timeout_ms_floor,
             )
             .await?
         }
@@ -336,6 +366,57 @@ async fn run_mythos(
             ("burst_count", cli.burst_count.max(512).to_string()),
             ("rounds", cli.rounds.max(256).to_string()),
             ("mode", "mythos".to_string()),
+        ],
+    );
+    Ok(())
+}
+
+async fn run_loopback_limit(
+    cli: &Cli,
+    template: &PacketTemplate,
+    endpoint: &str,
+    burst_count: usize,
+    concurrency: usize,
+    rounds: usize,
+    timeout_ms_floor: u64,
+) -> Result<()> {
+    let endpoint_url =
+        Url::parse(endpoint).with_context(|| format!("parse endpoint {}", endpoint))?;
+    let target = ResolvedTarget { url: endpoint_url };
+    let targets = vec![target];
+    let mut combined = ScenarioSummary::new("loopback_limit");
+
+    let mut timeout_ms = cli.timeout_ms.min(timeout_ms_floor);
+    let burst_count = burst_count.max(128);
+    let concurrency = concurrency.max(32);
+    let rounds = rounds.max(1);
+
+    for round in 0..rounds {
+        let client = build_client(timeout_ms)?;
+        let summary = run_burst_batch(
+            &client,
+            cli,
+            template,
+            &targets,
+            burst_count * (round + 1),
+            concurrency.saturating_mul(round + 1),
+            "{\"path\":\"/kb/index\"}",
+        )
+        .await?;
+        combined.merge(&summary);
+        timeout_ms = timeout_ms
+            .saturating_add(timeout_ms_floor / 2)
+            .max(timeout_ms_floor);
+    }
+
+    print_summary(
+        &combined,
+        vec![
+            ("endpoint", endpoint.to_string()),
+            ("burst_count", burst_count.to_string()),
+            ("concurrency", concurrency.to_string()),
+            ("rounds", rounds.to_string()),
+            ("mode", "loopback_limit".to_string()),
         ],
     );
     Ok(())
