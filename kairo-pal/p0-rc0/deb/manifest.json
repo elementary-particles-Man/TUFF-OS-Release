@@ -1,0 +1,24 @@
+{
+  "artifact_family": "kairo-pal",
+  "release_label": "kairo-pal-p0-rc0-prehw",
+  "status": "pre-hardware-test",
+  "created_utc": "2026-06-02T08:15:00Z",
+  "source_repo": "elementary-particles-Man/TUFF-KAIRO",
+  "source_branch": "release/kairo-pal-p0-security-package",
+  "source_head": "6fff3d41f445f0d873893be02abe84011d53a286",
+  "pal_repo": "elementary-particles-Man/TUFF-PAL",
+  "release_repo": "elementary-particles-Man/TUFF-OS-Release",
+  "artifact_type": "deb",
+  "artifacts": [
+    "kairo-pal-p0-security-package_0.1.0+6fff3d41_amd64.deb"
+  ],
+  "checksum_file": "SHA256SUMS",
+  "hardware_e2e": "pending_test_machine_memory_replacement",
+  "known_full_test_blocker": "pre-existing vulkan_gpu SIGSEGV outside this packaging task",
+  "non_goals": [
+    "not stable",
+    "not production-ready",
+    "not latest",
+    "no live install performed in this task"
+  ]
+}
